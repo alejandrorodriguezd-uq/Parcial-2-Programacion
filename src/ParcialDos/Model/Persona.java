@@ -1,7 +1,7 @@
 package ParcialDos.Model;
 
-public class Persona {
+public abstract class Persona {
     //ATRIBUTOS
-    public int runt, telefono;
-    public String nombreCompleto, correo;
+    private int runt, telefono;
+    private String nombreCompleto, correo;
 }

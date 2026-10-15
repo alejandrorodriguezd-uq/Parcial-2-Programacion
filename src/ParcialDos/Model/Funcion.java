@@ -2,6 +2,7 @@ package ParcialDos.Model;
 
 public class Funcion {
     //ATRIBUTOS
-    public int codigo, fecha, horaInicio;
-    public double precioBase;
+    private int codigo;
+    public int fecha, horaInicio;
+    private double precioBase;
 }
