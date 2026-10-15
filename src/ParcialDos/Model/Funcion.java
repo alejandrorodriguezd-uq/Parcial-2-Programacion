@@ -12,7 +12,7 @@ public class Funcion {
     private String fecha;
 
     //RELACIONES
-    private List<Boleta> listBoletas;
+    public static  List<Boleta> listBoletas;
     private Pelicula pelicula;
     private Sala sala;
 

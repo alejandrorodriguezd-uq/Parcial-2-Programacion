@@ -6,25 +6,68 @@ import java.util.List;
 public class Venta {
     //ATRIBUTOS
     private int codigo, fechaRealizacion;
+    private double total;
 
     //RELACIONES
     private Cliente cliente;
     private Operador operador;
     private List<Boleta> listBoletas;
 
-    /**
-     * Método Constructor de la clase Venta
-     * @param codigo
-     * @param fechaRealizacion
-     * @param cliente
-     * @param operador
-     */
-    public Venta(int codigo, int fechaRealizacion, Cliente cliente, Operador operador) {
+    public Venta(int codigo, int fechaRealizacion, Cliente cliente, Operador operador, List<Boleta> listBoletas, double total) {
         this.codigo = codigo;
         this.fechaRealizacion = fechaRealizacion;
         this.cliente = cliente;
         this.operador = operador;
-        this.listBoletas = new ArrayList<>();
+        this.listBoletas = listBoletas;
+        this.total= total;
+    }
+
+    /**
+     * metodo para registrar una venta
+     * @param codigo
+     * @param fechaRealizacion
+     * @param cliente
+     * @param operador
+     * @param codigoFuncion
+     * @return
+     */
+    public static String RegsitrarVenta (int codigo, int fechaRealizacion, Cliente cliente, Operador operador, int codigoFuncion){
+
+        String mensaje= "";
+
+        Venta encontrado =buscarVenta(codigo);
+
+        List<Boleta>listBoletas= Boleta.añadirBoletas(codigoFuncion);
+
+        double total = Cliente.calcularTotal(listBoletas,codigoFuncion);
+
+        if(encontrado==null){
+
+            Venta venta = new Venta(codigo,fechaRealizacion,cliente,operador,listBoletas,total);
+            Cine.listVentas.add(venta);
+
+            mensaje="Venta registrada con exito\n"+"Total a pagar: "+total;
+        }
+
+        return mensaje;
+
+    }
+
+    /**
+     * metodo para buscar una venta
+     * @param codigo
+     * @return
+     */
+    public static Venta buscarVenta ( int codigo){
+
+        Venta encontrado = null;
+        for(int i =0; i<Cine.listVentas.size(); i++){
+            Venta venta =Cine.listVentas.get(i);
+            if(venta.getCodigo()==codigo){
+                encontrado=venta;
+            }
+        }
+        return encontrado;
     }
 
     @Override
@@ -32,6 +75,7 @@ public class Venta {
         return "Venta{" +
                 "codigo=" + codigo +
                 ", fechaRealizacion=" + fechaRealizacion +
+                ", total=" + total +
                 ", cliente=" + cliente +
                 ", operador=" + operador +
                 '}';
@@ -75,5 +119,13 @@ public class Venta {
 
     public void setListBoletas(List<Boleta> listBoletas) {
         this.listBoletas = listBoletas;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }

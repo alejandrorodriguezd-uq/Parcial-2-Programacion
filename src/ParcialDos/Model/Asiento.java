@@ -26,6 +26,25 @@ public class Asiento {
         this.listBoletas = new ArrayList<>();
     }
 
+    /**
+     * metodo para buscar aciento
+     * @param numeroAsiento
+     * @return
+     */
+
+    public static Asiento buscarAsiento ( int numeroAsiento){
+
+        Asiento encontrado= null;
+        for (int i=0; i<Sala.listAsientos.size(); i++){
+            Asiento asiento= Sala.listAsientos.get(i);
+            if(asiento.getNumeroAsiento()==numeroAsiento){
+
+                encontrado=asiento;
+            }
+        }
+        return encontrado;
+    }
+
     @Override
     public String toString() {
         return "Asiento{" +

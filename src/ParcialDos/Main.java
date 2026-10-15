@@ -31,7 +31,9 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Usted presionó 3", "Error", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 4:
-                    JOptionPane.showMessageDialog(null, "Usted presionó 4", "Información", JOptionPane.INFORMATION_MESSAGE);
+
+
+
                     break;
                 case 5:
                     JOptionPane.showMessageDialog(null, "Usted presionó 5", "Pregunta", JOptionPane.QUESTION_MESSAGE);

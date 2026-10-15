@@ -11,7 +11,7 @@ public class Sala {
 
     //RELACIONES
     private TipoSala tipoSala;
-    private List<Asiento> listAsientos;
+    public static  List<Asiento> listAsientos;
     public static  List<Funcion> listFunciones;
 
     /**

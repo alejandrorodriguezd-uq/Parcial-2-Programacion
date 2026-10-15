@@ -13,7 +13,7 @@ public class Cine {
     public static List<Pelicula> listPeliculas;
     private List<Sala> listSalas;
     public static List<Persona> listPersonas;
-    private List<Venta> listVentas;
+    public static  List<Venta> listVentas;
     private List<Funcion> listFunciones;
 
     /**

@@ -1,5 +1,9 @@
 package ParcialDos.Model;
 
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Boleta {
 
     //ATRIBUTO
@@ -12,12 +16,73 @@ public class Boleta {
     private Funcion funcion;
 
 
-    public Boleta(int codigo, double valorPagado, Asiento asiento, Venta venta, Funcion funcion) {
+    public Boleta(int codigo, double valorPagado, Asiento asiento,  Funcion funcion) {
         this.codigo = codigo;
         this.valorPagado = valorPagado;
         this.asiento = asiento;
-        this.venta = venta;
         this.funcion = funcion;
+    }
+
+    /**
+     * metodo para añadir boletas
+     * @param codigoFuncion
+     * @return
+     */
+    public static List<Boleta> añadirBoletas(int codigoFuncion){
+        List<Boleta> listBoletas=new ArrayList<>();
+        Funcion funcion = Funcion.buscarFuncion(codigoFuncion);
+        double valorPagado= funcion.getPrecioBase();
+        int opcion=0;
+        do{
+            int codigoBoleta= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo de la Boleta"));
+            Boleta encontrado= buscarBoleta(codigoBoleta);
+            int numeroAsiento= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuemro de asiento"));
+            Asiento asiento = Asiento.buscarAsiento(numeroAsiento);
+
+            if(encontrado==null&&asiento.getEstadoAsiento()!=EstadoAsiento.OCUPADO){
+
+                Boleta boleta= new Boleta (codigoBoleta,valorPagado,asiento,funcion);
+                listBoletas.add(boleta);
+                JOptionPane.showMessageDialog(null,"Boleta Agregada con exito");
+
+            }else if (encontrado==null&&asiento.getEstadoAsiento()==EstadoAsiento.OCUPADO){
+                JOptionPane.showMessageDialog(null,"El numero de asiento selecionado esta ocupado. Intenta otra vez");
+
+            }else if( encontrado!=null&&asiento.getEstadoAsiento()!=EstadoAsiento.OCUPADO){
+
+                JOptionPane.showMessageDialog(null,"Esta Boleta ya existe. Intenta otra vez");
+            }else{
+
+                JOptionPane.showMessageDialog(null,"No se pudo agregar la boleta. Intenta otra vez");
+            }
+
+            opcion=Integer.parseInt(JOptionPane.showInputDialog("Quieres Seguir agregando mas boletas? 1.si , 2.No"));
+
+        }while(opcion!=2);
+
+        return listBoletas;
+
+
+    }
+
+    /**
+     * metodo para buscar boleta
+     * @param codigo
+     * @return
+     */
+
+    public static Boleta buscarBoleta(int codigo){
+
+        Boleta encontrado= null;
+        for(int i=0; i<Funcion.listBoletas.size(); i++){
+
+            Boleta boleta = Funcion.listBoletas.get(i);
+            if(boleta.getCodigo()==codigo){
+
+                encontrado=boleta;
+            }
+        }
+        return encontrado;
     }
 
     @Override

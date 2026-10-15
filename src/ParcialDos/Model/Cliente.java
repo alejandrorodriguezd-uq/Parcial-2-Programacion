@@ -75,6 +75,37 @@ public class Cliente extends Persona {
         return encontrado;
     }
 
+    /**
+     * metodo para calcular el total de una venta
+     * @param listBoletas
+     * @param codigoFuncion
+     * @return
+     */
+
+    public static double calcularTotal( List<Boleta>listBoletas, int codigoFuncion ){
+
+        double total=0;
+
+        Funcion funcion= Funcion.buscarFuncion(codigoFuncion);
+
+        for(Boleta boleta: listBoletas){
+            double precio= boleta.getValorPagado();
+            total+= precio;
+        }
+
+        if(funcion.getSala().getTipoSala()==TipoSala.VIP){
+
+            total=total+(total*0.3);
+        }else if (funcion.getSala().getTipoSala()==TipoSala.TRES_D){
+
+            total=total+(total*0.2);
+        }
+
+        total=total-(total*DESCUENTO);
+
+        return total;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
@@ -99,4 +130,6 @@ public class Cliente extends Persona {
     public void setListVentas(List<Venta> listVentas) {
         this.listVentas = listVentas;
     }
+
+
 }
