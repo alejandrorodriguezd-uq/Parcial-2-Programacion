@@ -19,7 +19,10 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    JOptionPane.showMessageDialog(null, "Usted presionó 1", "Información", JOptionPane.INFORMATION_MESSAGE);
+
+
+
+
                     break;
                 case 2:
                     JOptionPane.showMessageDialog(null, "Usted presionó 2", "Advertencia", JOptionPane.WARNING_MESSAGE);

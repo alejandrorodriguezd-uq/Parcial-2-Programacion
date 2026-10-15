@@ -1,34 +1,90 @@
 package ParcialDos.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sala {
+
     //ATRIBUTOS
     private int codigo,capacidadMaxima;
-    private String nombre, tipo;
+    private String nombre;
 
     //RELACIONES
     private TipoSala tipoSala;
     private List<Asiento> listAsientos;
-    private List<Funcion> listFunciones;
+    public static  List<Funcion> listFunciones;
 
     /**
      * Método constructor Sala
      * @param codigo
      * @param capacidadMaxima
      * @param nombre
-     * @param tipo
      * @param tipoSala
-     * @param listAsientos
-     * @param listFunciones
      */
-    public Sala(int codigo, int capacidadMaxima, String nombre, String tipo, TipoSala tipoSala, List<Asiento> listAsientos, List<Funcion> listFunciones) {
+    public Sala(int codigo, int capacidadMaxima, String nombre, TipoSala tipoSala) {
         this.codigo = codigo;
         this.capacidadMaxima = capacidadMaxima;
         this.nombre = nombre;
-        this.tipo = tipo;
         this.tipoSala = tipoSala;
         this.listAsientos = new ArrayList<>();
         this.listFunciones = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Sala{" +
+                "codigo=" + codigo +
+                ", capacidadMaxima=" + capacidadMaxima +
+                ", nombre='" + nombre + '\'' +
+                ", tipoSala=" + tipoSala +
+                '}';
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
+    public void setCapacidadMaxima(int capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public TipoSala getTipoSala() {
+        return tipoSala;
+    }
+
+    public void setTipoSala(TipoSala tipoSala) {
+        this.tipoSala = tipoSala;
+    }
+
+    public List<Asiento> getListAsientos() {
+        return listAsientos;
+    }
+
+    public void setListAsientos(List<Asiento> listAsientos) {
+        this.listAsientos = listAsientos;
+    }
+
+    public List<Funcion> getListFunciones() {
+        return listFunciones;
+    }
+
+    public void setListFunciones(List<Funcion> listFunciones) {
+        this.listFunciones = listFunciones;
     }
 }

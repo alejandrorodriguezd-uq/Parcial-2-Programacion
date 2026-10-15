@@ -3,13 +3,12 @@ package ParcialDos.Model;
 import java.util.ArrayList;
 
 public abstract class Persona {
+
     //ATRIBUTOS
     private int documentoIdentidad, numerotelefono;
     private String nombre, correoElectronico;
 
     //RELACIONES
-    private List<Cliente> listClientes;
-    private List<Operador> listOperadores;
 
     /**
      * Método constructor de la clase Persona
@@ -17,15 +16,53 @@ public abstract class Persona {
      * @param numerotelefono
      * @param nombre
      * @param correoElectronico
-     * @param listClientes
-     * @param listOperadores
      */
-    public Persona(int documentoIdentidad, int numerotelefono, String nombre, String correoElectronico, List<Cliente> listClientes, List<Operador> listOperadores) {
+    public Persona(int documentoIdentidad, int numerotelefono, String nombre, String correoElectronico) {
         this.documentoIdentidad = documentoIdentidad;
         this.numerotelefono = numerotelefono;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
-        this.listClientes = new ArrayList<>();
-        this.listOperadores = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "documentoIdentidad=" + documentoIdentidad +
+                ", numerotelefono=" + numerotelefono +
+                ", nombre='" + nombre + '\'' +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                '}';
+    }
+
+    public int getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
+
+    public void setDocumentoIdentidad(int documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
+    }
+
+    public int getNumerotelefono() {
+        return numerotelefono;
+    }
+
+    public void setNumerotelefono(int numerotelefono) {
+        this.numerotelefono = numerotelefono;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 }
