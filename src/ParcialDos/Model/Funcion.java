@@ -14,7 +14,7 @@ public class Funcion {
     //RELACIONES
     public static  List<Boleta> listBoletas;
     private Pelicula pelicula;
-    private Sala sala;
+    private static Sala sala;
 
     /**
      * Metodo cosntructor de la clase Funcion
@@ -93,6 +93,25 @@ public class Funcion {
             }
         }
         return encontrado;
+    }
+
+    /**
+     * metodo para calcular el porcentaje de ocupacion de una funcion
+     * @param codigo
+     * @return
+     */
+
+    public static String calcularPorcentajeOcupacion( int codigo){
+
+        String mensaje="";
+
+        Funcion funcion= buscarFuncion(codigo);
+
+        double porcentaje = (double) (listBoletas.size() * 100) /sala.getCapacidadMaxima();
+
+        mensaje="El porcentaje de ocupacion es de "+porcentaje+"%";
+
+        return mensaje;
     }
 
     /**
@@ -187,7 +206,7 @@ public class Funcion {
         this.pelicula = pelicula;
     }
 
-    public Sala getSala() {
+    public  Sala getSala() {
         return sala;
     }
 

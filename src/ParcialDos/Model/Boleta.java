@@ -43,7 +43,11 @@ public class Boleta {
 
                 Boleta boleta= new Boleta (codigoBoleta,valorPagado,asiento,funcion);
                 listBoletas.add(boleta);
+                Funcion.listBoletas.add(boleta);
+
                 JOptionPane.showMessageDialog(null,"Boleta Agregada con exito");
+
+                boleta.getAsiento().setEstadoAsiento(EstadoAsiento.OCUPADO);
 
             }else if (encontrado==null&&asiento.getEstadoAsiento()==EstadoAsiento.OCUPADO){
                 JOptionPane.showMessageDialog(null,"El numero de asiento selecionado esta ocupado. Intenta otra vez");
