@@ -24,7 +24,7 @@ public class Boleta {
     }
 
     /**
-     * metodo para añadir boletas
+     * Metodo para Añadir Boletas
      * @param codigoFuncion
      * @return
      */

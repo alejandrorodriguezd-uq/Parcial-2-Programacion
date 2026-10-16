@@ -9,11 +9,11 @@ public class Venta {
     private double total;
 
     //RELACIONES
-    private Cliente cliente;
+    private Persona cliente;
     private Operador operador;
     private List<Boleta> listBoletas;
 
-    public Venta(int codigo, int fechaRealizacion, Cliente cliente, Operador operador, List<Boleta> listBoletas, double total) {
+    public Venta(int codigo, int fechaRealizacion, Persona cliente, Operador operador, List<Boleta> listBoletas, double total) {
         this.codigo = codigo;
         this.fechaRealizacion = fechaRealizacion;
         this.cliente = cliente;
@@ -23,7 +23,7 @@ public class Venta {
     }
 
     /**
-     * metodo para registrar una venta
+     * Método para Registrar una Venta
      * @param codigo
      * @param fechaRealizacion
      * @param cliente
@@ -31,7 +31,7 @@ public class Venta {
      * @param codigoFuncion
      * @return
      */
-    public static String RegsitrarVenta (int codigo, int fechaRealizacion, Cliente cliente, Operador operador, int codigoFuncion){
+    public static String registrarVenta (int codigo, int fechaRealizacion, Persona cliente, Operador operador, int codigoFuncion){
 
         String mensaje= "";
 
@@ -97,7 +97,7 @@ public class Venta {
         this.fechaRealizacion = fechaRealizacion;
     }
 
-    public Cliente getCliente() {
+    public Persona getCliente() {
         return cliente;
     }
 

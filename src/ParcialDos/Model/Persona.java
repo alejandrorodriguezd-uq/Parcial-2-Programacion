@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Persona {
 
     //ATRIBUTOS
-    private int documentoIdentidad, numerotelefono;
+    private int documentoIdentidad, numeroTelefono;
     private String nombre, correoElectronico;
 
     //RELACIONES
@@ -13,13 +13,13 @@ public abstract class Persona {
     /**
      * Método constructor de la clase Persona
      * @param documentoIdentidad
-     * @param numerotelefono
+     * @param numeroTelefono
      * @param nombre
      * @param correoElectronico
      */
-    public Persona(int documentoIdentidad, int numerotelefono, String nombre, String correoElectronico) {
+    public Persona(int documentoIdentidad, int numeroTelefono, String nombre, String correoElectronico) {
         this.documentoIdentidad = documentoIdentidad;
-        this.numerotelefono = numerotelefono;
+        this.numeroTelefono = numeroTelefono;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
     }
@@ -28,7 +28,7 @@ public abstract class Persona {
     public String toString() {
         return "Persona{" +
                 "documentoIdentidad=" + documentoIdentidad +
-                ", numerotelefono=" + numerotelefono +
+                ", numerotelefono=" + numeroTelefono +
                 ", nombre='" + nombre + '\'' +
                 ", correoElectronico='" + correoElectronico + '\'' +
                 '}';
@@ -42,12 +42,12 @@ public abstract class Persona {
         this.documentoIdentidad = documentoIdentidad;
     }
 
-    public int getNumerotelefono() {
-        return numerotelefono;
+    public int getNumeroTelefono() {
+        return numeroTelefono;
     }
 
-    public void setNumerotelefono(int numerotelefono) {
-        this.numerotelefono = numerotelefono;
+    public void setNumeroTelefono(int numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
     public String getNombre() {

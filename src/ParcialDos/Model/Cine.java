@@ -11,7 +11,7 @@ public class Cine {
 
     //RELACIONES
     public static List<Pelicula> listPeliculas;
-    private List<Sala> listSalas;
+    public static List<Sala> listSalas;
     public static List<Persona> listPersonas;
     public static  List<Venta> listVentas;
     private List<Funcion> listFunciones;

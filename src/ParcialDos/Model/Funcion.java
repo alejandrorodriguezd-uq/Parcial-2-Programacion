@@ -49,7 +49,7 @@ public class Funcion {
      * @return
      */
 
-    public static String registrarFuncion(int codigo, String  fecha, int horaInicio,int horaFinal, double precioBase, Pelicula pelicula, Sala sala){
+    public static String registrarFuncion(int codigo, String  fecha, int horaInicio, int horaFinal, double precioBase, Pelicula pelicula, Sala sala){
 
         String mensaje ="";
 

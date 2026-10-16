@@ -17,13 +17,13 @@ public class Cliente extends Persona {
     /**
      * metodo constructor de la clase Cliente
      * @param documentoIdentidad
-     * @param numerotelefono
+     * @param numeroTelefono
      * @param nombre
      * @param correoElectronico
      * @param codigoAfiliacion
      */
-    public Cliente(int documentoIdentidad, int numerotelefono, String nombre, String correoElectronico, int codigoAfiliacion) {
-        super(documentoIdentidad, numerotelefono, nombre, correoElectronico);
+    public Cliente(int documentoIdentidad, int numeroTelefono, String nombre, String correoElectronico, int codigoAfiliacion) {
+        super(documentoIdentidad, numeroTelefono, nombre, correoElectronico);
         this.codigoAfiliacion = codigoAfiliacion;
         this.listVentas = new ArrayList<>();
     }
@@ -31,20 +31,20 @@ public class Cliente extends Persona {
     /**
      * Metodo para registrar cliente
      * @param documentoIdentidad
-     * @param numerotelefono
+     * @param numeroTelefono
      * @param nombre
      * @param correoElectronico
      * @param codigoAfiliacion
      * @return
      */
 
-    public static String registrarCliente( int documentoIdentidad, int numerotelefono, String nombre, String correoElectronico, int codigoAfiliacion){
+    public static String registrarCliente( int documentoIdentidad, int numeroTelefono, String nombre, String correoElectronico, int codigoAfiliacion){
 
         String mensaje="";
         Persona encontrado= buscarCliente(documentoIdentidad);
         if(encontrado==null){
 
-            Cliente cliente=new Cliente(documentoIdentidad,numerotelefono,nombre,correoElectronico,codigoAfiliacion);
+            Cliente cliente=new Cliente(documentoIdentidad,numeroTelefono,nombre,correoElectronico,codigoAfiliacion);
             Cine.listPersonas.add(cliente);
             mensaje="Cliente registrado exitosamente";
 
@@ -61,7 +61,6 @@ public class Cliente extends Persona {
      * @param documentoIdentidad
      * @return
      */
-
     public static Persona buscarCliente(int documentoIdentidad){
 
         Persona encontrado= null;
@@ -76,7 +75,7 @@ public class Cliente extends Persona {
     }
 
     /**
-     * metodo para calcular el total de una venta
+     * Método para calcular el total de una venta
      * @param listBoletas
      * @param codigoFuncion
      * @return
