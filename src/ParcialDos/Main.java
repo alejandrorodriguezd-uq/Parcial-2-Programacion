@@ -38,35 +38,39 @@ public class Main {
                     int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la película: "));
                     String duracion = JOptionPane.showInputDialog(null, "Ingresa la duración de la película: ");
                     String clasificacionEdad = JOptionPane.showInputDialog(null, "Ingrese la clasificación de la película: ");
-                    Pelicula.registrarPelicula(titulo, codigo, duracion, clasificacionEdad, GeneroPelicula.ACCION);
+                    String mensaje = Pelicula.registrarPelicula(titulo, codigo, duracion, clasificacionEdad, GeneroPelicula.ACCION);
+
+                    JOptionPane.showMessageDialog(null, mensaje);
 
                     break;
 
                 //REGISTRAR CLIENTES
                 case 2:
-                    int documentoIdentidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la película: "));;
-                    int numeroTelefono = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la película: "));;
-                    String nombre = JOptionPane.showInputDialog(null, "Ingrese la fecha de presentación de la película: ");;
-                    String correoElectronico = JOptionPane.showInputDialog(null, "Ingrese la fecha de presentación de la película: ");;
-                    int codigoAfiliacion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la película: "));
+                    int documentoIdentidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el documento de identidad del cliente: "));;
+                    int numeroTelefono = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el numero de teléfono: "));;
+                    String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del cliente: ");;
+                    String correoElectronico = JOptionPane.showInputDialog(null, "Ingrese el correo electrónico del cliente: ");;
+                    int codigoAfiliacion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de afiliación: "));
 
-                    Cliente.registrarCliente(documentoIdentidad, numeroTelefono, nombre, correoElectronico, codigoAfiliacion);
+                    String mensaje2 = Cliente.registrarCliente(documentoIdentidad, numeroTelefono, nombre, correoElectronico, codigoAfiliacion);
 
+                    JOptionPane.showMessageDialog(null, mensaje2);
                     break;
 
                 //REGISTRAR FUNCIONES
                 case 3:
-                    int cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la película: "));
+                    int cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la función: "));
                     String fecha = JOptionPane.showInputDialog(null, "Ingrese la fecha de presentación de la película: ");
-                    int horaInicio = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la hora de comienzo de la película: "));
-                    int horaFinal = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la hora de finalización la película: "));
+                    int horaInicio = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la hora de comienzo de la película (hora militar): "));
+                    int horaFinal = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la hora de finalización la película (hora militar): "));
                     double precioBase = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el precio base de la película: "));
 
-                    int codigoPelicula = Integer.parseInt(JOptionPane.showInputDialog(null, "Codigo de la película:"));
+                    int codigoPelicula = Integer.parseInt(JOptionPane.showInputDialog(null, "Código de la película:"));
                     Pelicula pelicula = Pelicula.buscarPelicula(codigoPelicula);
 
-                    Funcion.registrarFuncion(cod, fecha, horaInicio, horaFinal, precioBase, pelicula, sala);
+                    String mensaje3 = Funcion.registrarFuncion(cod, fecha, horaInicio, horaFinal, precioBase, pelicula, sala);
 
+                    JOptionPane.showMessageDialog(null, mensaje3);
                     break;
 
                 //REALIZAR VENTA BOLETAS
@@ -79,21 +83,26 @@ public class Main {
                     int clienteBuscado = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número de identidad del cliente: "));
                     Persona cliente1 = Cliente.buscarCliente(clienteBuscado);
 
-                    Venta.registrarVenta(code, fechaRealizacion, cliente1, operador, codigoFuncion);
+                    String mensaje4 = Venta.registrarVenta(code, fechaRealizacion, cliente1, operador, codigoFuncion);
+
+                    JOptionPane.showMessageDialog(null, mensaje4);
                     break;
 
                 //CALCULAR EL VALOR TOTAL DE UNA VENTA
                 case 5:
                     int codigoVenta = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la Venta: "));
-                    Venta.buscarVenta(codigoVenta);
+                    Venta mensaje5 = Venta.buscarVenta(codigoVenta);
+
+                    JOptionPane.showMessageDialog(null, mensaje5.toString());
 
                     break;
 
                 //CALCULAR EL % DE OCUPACIÓN DE UNA SALA
                 case 6:
-                    int codeSala = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la sala: "));
-                    Funcion.calcularPorcentajeOcupacion(codeSala);
+                    int codeFuncion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el código de la función: "));
+                    String mensaje6 = Funcion.calcularPorcentajeOcupacion(codeFuncion);
 
+                    JOptionPane.showMessageDialog(null, mensaje6);
                     break;
 
                 case 7:
