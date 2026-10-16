@@ -25,7 +25,7 @@ public class Main {
                     "2. Registrar clientes\n" +
                     "3. Programar funciones\n" +
                     "4. Realizar ventas de boletas\n" +
-                    "5. Calcular el valor total de una venta\n" +
+                    "5. Consultar Venta\n" +
                     "6. Calcular El % de Ocupación de una sala\n" +
                     "7. Salir\n" +
                     "Selecciona una opción del menú"));
