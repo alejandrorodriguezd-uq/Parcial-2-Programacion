@@ -6,7 +6,15 @@ import javax.swing.JOptionPane;
 public class Main {
     public static void main(String[] args) {
         //INSTANCIAR CLASES
-        Sala sala = new Sala(1, 50, "Sala_Uno", TipoSala.TRADICIONAL);
+        Cine cine= new Cine ("CinePlus","la Vahia", 1234567890);
+        Sala sala = new Sala(1, 100, "Sala_Uno", TipoSala.TRADICIONAL);
+        Asiento Asiento1= new Asiento(1, 123, EstadoAsiento.DISPONIBLE);
+        Sala.listAsientos.add(Asiento1);
+        Asiento Asiento2= new Asiento(2, 426, EstadoAsiento.DISPONIBLE);
+        Sala.listAsientos.add(Asiento2);
+        Asiento Asiento3= new Asiento(3, 789, EstadoAsiento.DISPONIBLE);
+        Sala.listAsientos.add(Asiento3);
+
         Operador operador = new Operador(2, 2, "Tatiana", "tatianproxdxd@gmail.com", 1, 01012007, 2);
 
         int opcion = 0;
